@@ -1,9 +1,10 @@
 import os
+from pathlib import Path
 
 
 def read_puzzle_input():
-    with open("input/day01.txt") as f:
-        return f.read()
+    puzzle_input = Path(__file__).parent / f"input/{Path(__file__).stem}.txt"
+    return puzzle_input.read_text()
 
 
 def day01():
@@ -17,4 +18,5 @@ def day01():
 
 
 if __name__ == "__main__":
+    print(f"--- {Path(__file__).stem} ---")
     day01()
