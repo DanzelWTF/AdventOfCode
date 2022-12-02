@@ -8,6 +8,7 @@ import os
 @click.option('--year', default='2022', help='The year of the puzzle')
 @click.option('--day', default='01', help='The day you want to run')
 def run(year, day):
+    print(f"--- Advent of Code {year} / Day {day} ---")
     os.system(f"python {year}/day{day}.py")
 
 

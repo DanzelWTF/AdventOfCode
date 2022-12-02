@@ -18,5 +18,4 @@ def day01():
 
 
 if __name__ == "__main__":
-    print(f"--- {Path(__file__).stem} ---")
     day01()
