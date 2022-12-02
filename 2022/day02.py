@@ -27,27 +27,24 @@ def part1_get_points_for_round(s1, s2):
 def part2_get_points_for_shape(player1, outcome):
     # X = Rock (1p), Y = Paper (2p), Z = Scissors (3p)
     points = {'Rock': 1, 'Paper': 2, 'Scissors': 3}
-    if outcome == 'X':  # Loss
-        if player1 == 'A':  # Rock beats Scissors
-            return points['Scissors']
-        elif player1 == 'B':  # Paper beats Rock
-            return points['Rock']
-        elif player1 == 'C':  # Scissors beats Paper
-            return points['Paper']
-    elif outcome == 'Y':  # Draw
-        if player1 == 'A':  # Rock
-            return points['Rock']
-        elif player1 == 'B':  # Paper
-            return points['Paper']
-        elif player1 == 'C':  # Scissors
-            return points['Scissors']
-    elif outcome == 'Z':  # Win
-        if player1 == 'A':  # Paper beats Rock
-            return points['Paper']
-        elif player1 == 'B':  # Scissors beats Paper
-            return points['Scissors']
-        elif player1 == 'C':  # Rock beats Scissors
-            return points['Rock']
+
+    # match case statement - python >= 3.10
+    match outcome:
+        case "X":  # Loss
+            match player1:
+                case "A": return points["Scissors"]
+                case "B": return points["Rock"]
+                case "C": return points["Paper"]
+        case "Y":  # Draw
+            match player1:
+                case "A": return points["Rock"]
+                case "B": return points["Paper"]
+                case "C": return points["Scissors"]
+        case "Z":  # Win
+            match player1:
+                case "A": return points["Paper"]
+                case "B": return points["Scissors"]
+                case "C": return points["Rock"]
 
 
 def part2_get_points_for_round(outcome):
